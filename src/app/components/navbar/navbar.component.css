@@ -1,12 +1,8 @@
-/* Navbar Container */
+
 .custom-navbar {
     /* Gradient Background (Purple to Dark Space) */
     background: linear-gradient(135deg, #2D1E5F 0%, #0C0032 100%);
-    
-    /* Border Bottom (Portal Green) */
     border-bottom: 2px solid #42B983;
-    
-    /* Text Color (Portal Green) */
     color: #42B983;
   }
   
