@@ -4,3 +4,13 @@
     color: white; 
     width: 45%;
   }
+button{
+    color:#42B983;
+    border-color: #42B983;
+}
+
+  button:hover{
+    color: #FFD166 !important; 
+    text-shadow: 0 0 5px #FFD166;
+    background-color: #2D1E5F;
+  }
