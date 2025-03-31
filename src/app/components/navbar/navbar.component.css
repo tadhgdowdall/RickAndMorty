@@ -1,0 +1,61 @@
+/* Navbar Container */
+.custom-navbar {
+    /* Gradient Background (Purple to Dark Space) */
+    background: linear-gradient(135deg, #2D1E5F 0%, #0C0032 100%);
+    
+    /* Border Bottom (Portal Green) */
+    border-bottom: 2px solid #42B983;
+    
+    /* Text Color (Portal Green) */
+    color: #42B983;
+  }
+  
+  /* Nav Links */
+  .custom-navbar .nav-link {
+    color: #42B983 !important; /* Override Bootstrap */
+    font-weight: 500;
+    margin: 0 10px;
+    transition: all 0.3s;
+  }
+  
+  .custom-navbar .nav-link:hover {
+    color: #FFD166 !important; /* Morty Yellow on hover */
+    text-shadow: 0 0 5px #FFD166;
+  }
+  
+  /* Active Link */
+  .custom-navbar .nav-link.active {
+    border-bottom: 2px solid #42B983;
+  }
+  
+  /* Logo */
+  .logo {
+    width: 50px;
+    height: auto;
+    transition: transform 0.3s;
+  }
+  
+  .logo:hover {
+    transform: rotate(-15deg); /* Playful Rick effect */
+  }
+  
+  /* Mobile Menu Icon */
+  .custom-navbar .navbar-toggler {
+    border-color: #42B983;
+  }
+  
+  /* Custom hamburger icon color */
+  .custom-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(66, 185, 131, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+  
+  /* Search Button */
+  .btn-outline-success {
+    color: #42B983;
+    border-color: #42B983;
+  }
+  
+  .btn-outline-success:hover {
+    background-color: #42B983;
+    color: #0C0032; /* Dark Space text on hover */
+  }
