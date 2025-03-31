@@ -14,3 +14,10 @@ button{
     text-shadow: 0 0 5px #FFD166;
     background-color: #2D1E5F;
   }
+
+
+  /*  Adds a green shadow on the card when hover */
+  .card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 15px rgba(66, 185, 131, 0.5); 
+  }

@@ -1,0 +1,41 @@
+/* Footer Colors */
+.border-portal {
+    border-top: 2px solid #42B983 !important; 
+  }
+  
+  .text-portal {
+    color: #42B983 !important; 
+  }
+  
+  .copyright {
+    color: #FFD166 !important; /* Morty yellow */
+  }
+  
+  .icon{
+    color: #A0A0A0 !important; /* Gray for social icons */
+    transition: all 0.3s ease;
+  }
+  
+  .icon:hover {
+    color: #42B983 !important; /* Portal green on hover */
+    transform: translateY(-2px);
+  }
+  
+
+  footer {
+    background-color: #0C0032; 
+  }
+  
+  /* Animation for portal icon */
+  @keyframes portal-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  a:hover img {
+    animation: portal-spin 2s linear infinite;
+  }
+
+  img{
+    border-radius: 40px;
+  }
