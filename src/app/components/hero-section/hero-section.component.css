@@ -15,11 +15,12 @@
     box-shadow: 0 0 10px #42B983;
   }
   
-  .btn-outline-morty {
+  .btn-outline {
     color: #FFD166;
     border-color: #FFD166;
   }
   
-  .btn-outline-morty:hover {
+  .btn-outline:hover {
     background-color: rgba(255, 209, 102, 0.1);
   }
+

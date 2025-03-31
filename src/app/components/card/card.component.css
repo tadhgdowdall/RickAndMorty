@@ -2,7 +2,10 @@
     border: 1px solid #42B983; 
     background-color: #0C0032; 
     color: white; 
-    width: 45%;
+    width: 100%;
+    min-width: 300px;
+    max-width: 500px;
+    margin: 0 auto; /* Centers the card */
   }
 button{
     color:#42B983;
@@ -21,3 +24,5 @@ button{
     transform: scale(1.02);
     box-shadow: 0 10px 15px rgba(66, 185, 131, 0.5); 
   }
+
+  

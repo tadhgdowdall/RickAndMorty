@@ -1,16 +1,18 @@
-<div class="card mb-3 card">
-    <div class="row g-0">  
-      <!-- Image to the left -->
+<!-- card.component.html -->
+<div class="card h-100">
+    <div class="row g-0 h-100">
+      <!-- Image Column (Left) -->
       <div class="col-md-5">
         <img 
           src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" 
-          class="img-fluid rounded-start" 
+          class="img-fluid rounded-start h-100"
+          style="object-fit: cover;"
           alt="Rick Sanchez"
         >
       </div>
       
-      <!-- text to the right -->
-      <div class="col-md-7">
+      <!-- Text Column (Right) -->
+      <div class="col-md-7 d-flex flex-column">
         <div class="card-body">
           <h5 class="card-title">Rick Sanchez</h5>
           <p class="card-text">
@@ -18,7 +20,9 @@
             <strong>Species:</strong> Human<br>
             <strong>Origin:</strong> Earth (C-137)
           </p>
-          <button class="btn btn-sm ">View Episodes</button>
+        </div>
+        <div class="card-footer bg-transparent border-portal">
+          <button class="btn btn-portal">View Episodes</button>
         </div>
       </div>
     </div>
