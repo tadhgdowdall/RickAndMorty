@@ -23,7 +23,7 @@
   
 
   footer {
-    background-color: #0C0032; 
+    background: linear-gradient(135deg, #2D1E5F 0%, #0C0032 100%);
   }
   
   /* Animation for portal icon */
