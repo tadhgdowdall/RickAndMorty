@@ -12,6 +12,7 @@ html, body {
     background: 
       radial-gradient(circle at 20% 30%, #2D1E5F 0%, #0C0032 100%) fixed;
     position: relative;
+    
   }
   
   .content {

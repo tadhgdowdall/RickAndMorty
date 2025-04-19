@@ -1,7 +1,30 @@
 <div class="container-fluid">
+  <!-- Search Form  -->
+  <form class="d-flex mb-4">
+    <input #searchInput class="form-control me-2" 
+           type="search" 
+           placeholder="Search"
+           name="searchQuery">
+    <button class="btn btn-outline-success submitBtn" 
+            type="button"
+            (click)="searchCharacterName(searchInput.value)">
+      Search
+    </button>
+  </form>
 
-    
-    <app-card *ngFor="let character of characters" 
-    [character]="character"></app-card>
+  <!-- Search Results  -->
+  <div *ngIf="searchResults.length > 0" class="mb-4">
+    <div class="row">
+      <div class="col-md-6 mb-4" *ngFor="let character of searchResults">
+        <app-card [character]="character"></app-card>
+      </div>
+    </div>
+  </div>
+
+  <!-- All Characters  -->
+  <div class="row">
+    <div class="col-md-6 mb-4" *ngFor="let character of characters">
+      <app-card [character]="character"></app-card>
+    </div>
+  </div>
 </div>
-

@@ -16,6 +16,7 @@ export class CharactersComponent implements OnInit {
 // Do api card logic 
 
 characters: Character[] = []; // Initiliase array of characters
+searchResults: Character[] = []; // New array for search results
 loading = true;
 error: string | null = null;
 
@@ -25,6 +26,23 @@ error: string | null = null;
 ngOnInit(): void {
   this.loadCharacters();
 
+}
+
+searchCharacterName(characterName: string) {
+  if (!characterName.trim()) return;
+  
+  this.loading = true;
+  this.error = null;
+  
+  this.characterService.getCharacterByName(characterName).subscribe({
+    next: (response) => {
+      this.searchResults = response.results; // Store search results separately
+    },
+    error: (err) => {
+      this.searchResults = []; // Clear on error
+      console.error('Search error:', err);
+    }
+  });
 }
 
 loadCharacters(): void {

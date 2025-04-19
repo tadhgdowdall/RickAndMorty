@@ -1,6 +1,11 @@
-.container{
-    background-color: #0C0032; /* Deep space blue-purple */
-    background-image: 
-      radial-gradient(circle at 20% 30%, #2D1E5F 0%, transparent 30%);
-    background-attachment: fixed;
+
+
+.submitBtn{
+  color: #FFD166;
+  border-color:#FFD166;
+
+}
+
+.submitBtn:hover{
+  background-color: #2D1E5F;
 }
