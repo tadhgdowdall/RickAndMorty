@@ -4,7 +4,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-episodes',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   templateUrl: './episodes.component.html',
   styleUrl: './episodes.component.css'
 })

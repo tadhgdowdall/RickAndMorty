@@ -4,21 +4,21 @@
     <!-- Image Column (Left) -->
     <div class="col-md-5">
       <img 
-        src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" 
+        [src]="character.image" 
         class="img-fluid rounded-start h-100"
         style="object-fit: cover;"
-        alt="Rick Sanchez"
+        [alt]="character.name"
       >
     </div>
     
     <!-- Text Column (Right) -->
     <div class="col-md-7 d-flex flex-column">
       <div class="card-body">
-        <h5 class="card-title">Rick Sanchez</h5>
+        <h5 class="card-title">{{ character.name }}</h5>
         <p class="card-text">
-          <strong>Status:</strong> Alive<br>
-          <strong>Species:</strong> Human<br>
-          <strong>Origin:</strong> Earth (C-137)
+          <strong>Status:</strong> {{ character.status }}<br>
+          <strong>Species:</strong> {{ character.species }}<br>
+          <strong>Origin:</strong> {{ character.origin?.name || 'Unknown origin' }}
         </p>
       </div>
       <div class="card-footer bg-transparent border-portal">
