@@ -1,11 +1,54 @@
 
-
-.submitBtn{
+.submitBtn {
   color: #FFD166;
-  border-color:#FFD166;
-
+  border-color: #FFD166;
 }
 
-.submitBtn:hover{
+.submitBtn:hover {
   background-color: #2D1E5F;
 }
+
+#errorOutput {
+  color: white;
+}
+
+.errorMessage {
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  color: white;
+}
+
+app-card {
+  display: block;
+  height: 100%;
+}
+
+.viewport {
+  height: 1200px;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+.virtual-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -0.5rem;
+}
+
+.virtual-col {
+  flex: 0 0 50%;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+
+/* Responsive fallback */
+@media (max-width: 768px) {
+  .virtual-col {
+    flex: 0 0 100%;
+  }
+}
+

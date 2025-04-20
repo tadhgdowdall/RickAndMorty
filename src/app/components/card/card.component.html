@@ -1,18 +1,17 @@
-<!-- card.component.html -->
 <div class="card h-100">
   <div class="row g-0 h-100">
-    <!-- Image Column (Left) -->
-    <div class="col-md-5">
+    <!-- Image Column -->
+    <div class="col-lg-5 col-md-12">
       <img 
         [src]="character.image" 
-        class="img-fluid rounded-start h-100"
-        style="object-fit: cover;"
+        class="img-fluid rounded-start h-100 w-100"
+        style="object-fit: cover; min-height: 200px;"
         [alt]="character.name"
       >
     </div>
     
-    <!-- Text Column (Right) -->
-    <div class="col-md-7 d-flex flex-column">
+    <!-- Text Column -->
+    <div class="col-lg-7 col-md-12 d-flex flex-column">
       <div class="card-body">
         <h5 class="card-title">{{ character.name }}</h5>
         <p class="card-text">
@@ -21,8 +20,8 @@
           <strong>Origin:</strong> {{ character.origin?.name || 'Unknown origin' }}
         </p>
       </div>
-      <div class="card-footer bg-transparent border-portal">
-        <button class="btn btn-portal">View Episodes</button>
+      <div class="card-footer bg-transparent border-portal mt-auto">
+        <button class="btn btn-portal w-100">View Episodes</button>
       </div>
     </div>
   </div>

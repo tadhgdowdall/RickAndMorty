@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { CardComponent } from '../../components/card/card.component';
 import { Character } from '../../models/character';
 import { CharacterService } from '../../services/character.service';
+import {ScrollingModule, CdkVirtualScrollViewport} from '@angular/cdk/scrolling'; // installed for virtualisation
 
 @Component({
   selector: 'app-characters',
-  imports: [CommonModule, RouterModule, CardComponent, RouterLink, RouterLinkActive],
+  imports: [CommonModule, RouterModule, CardComponent, ScrollingModule],
   templateUrl: './characters.component.html',
   styleUrl: './characters.component.css'
 })
@@ -15,14 +16,18 @@ export class CharactersComponent implements OnInit {
 
 // Do api card logic 
 
-characters: Character[] = []; // Initiliase array of characters
-searchResults: Character[] = []; // New array for search results
+
+
+characters: Character[] = []; // Array of characters
+searchResults: Character[] = []; // Array for storing the searched characters 
 loading = true;
 error: string | null = null;
+errorMessage:string ='';
+currentPage = 1;  // 
 
  constructor(public characterService: CharacterService){}
 
-// On page load it will do loadCharacters Method
+// When page loads it loads all characters 
 ngOnInit(): void {
   this.loadCharacters();
 
@@ -37,10 +42,12 @@ searchCharacterName(characterName: string) {
   this.characterService.getCharacterByName(characterName).subscribe({
     next: (response) => {
       this.searchResults = response.results; // Store search results separately
+      this.errorMessage='';
     },
     error: (err) => {
-      this.searchResults = []; // Clear on error
+      this.searchResults = []; 
       console.error('Search error:', err);
+      this.errorMessage = 'Character Can not be found';
     }
   });
 }
@@ -48,11 +55,13 @@ searchCharacterName(characterName: string) {
 loadCharacters(): void {
   this.loading = true;
   this.error = null;
-  
-  this.characterService.getCharacters().subscribe({
+
+  this.characterService.getCharacters(this.currentPage).subscribe({
     next: (response) => {
-      this.characters = response.results;  
+      // Append new characters to the existing list
+      this.characters = [...this.characters, ...response.results];
       this.loading = false;
+      this.currentPage++;
     },
     error: (err) => {
       this.error = 'Failed to load characters';
@@ -61,5 +70,25 @@ loadCharacters(): void {
     }
   });
 }
+
+/* I needed to group characters in rows of 2 as when trying to use virtual scrolling it would leave a lot of white space,
+  this was because when scrolling it only loads the next item. but i needed the next 2 items to display
+*/
+// get charactersRows(): Character[][] {
+//   const rows: Character[][] = [];
+//   for (let i = 0; i < this.characters.length; i += 2) {
+//     rows.push(this.characters.slice(i, i + 2));
+//   }
+//   return rows;
+// }
+
+
+
+onScrolledIndexChange(index: number) {
+  if (index >= this.characters.length - 5 && !this.loading) {
+    this.loadCharacters();
+  }
+}
+
 
 }
