@@ -1,0 +1,35 @@
+.episode-card {
+    background-color: #0C0032;
+    color: white;
+    border: 1px solid #42B983;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(66, 185, 131, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .episode-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(66, 185, 131, 0.5);
+  }
+  
+  .episode-card .card-title {
+    color: #42B983;
+  }
+  
+  .episode-meta .badge {
+    background-color: #2D1E5F !important;
+    color: #FFD166;
+    font-weight: bold;
+  }
+  
+  .character-preview .badge {
+    background-color: #6c757d;
+    color: white;
+    font-size: 0.75rem;
+  }
+  
+  .character-preview .badge.bg-light {
+    background-color: #FFD166 !important;
+    color: #2D1E5F !important;
+  }
+  

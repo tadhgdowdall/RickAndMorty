@@ -19,3 +19,21 @@
         </select>
       </div>
     </div>
+    <div *ngIf="loading" class="text-center text-white mb-3">
+      Loading episodes...
+    </div>
+    
+    <div *ngIf="error" class="text-danger text-center mb-3">
+      {{ error }}
+    </div>
+    
+
+<!-- In your episodes component -->
+<div class="row">
+    <div class="col-md-6 col-lg-4 mb-4" *ngFor="let episode of episodes">
+      <app-episode-card 
+        [episode]="episode"
+        [showCharacters]="true">
+      </app-episode-card>
+    </div>
+  </div>

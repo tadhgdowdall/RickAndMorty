@@ -1,11 +1,21 @@
-import { Character } from "./character";
-
-interface Episode {
+export interface Episode {
     id: number;
     name: string;
     air_date: string;
-    episode: string; // e.g. S01E02
-    charactersUrl: Character[]; // or character URLs
+    episode: string; // Format like "S01E01"
+    characters: string[]; // Array of character URLs
     url: string;
-    created: string;
+    created: string; // ISO format
   }
+  
+  // For paginated API responses
+  export interface EpisodeResponse {
+    info: {
+      count: number;
+      pages: number;
+      next: string | null;
+      prev: string | null;
+    };
+    results: Episode[];
+  }
+  
