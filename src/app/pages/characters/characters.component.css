@@ -1,3 +1,14 @@
+.row {
+  margin: 0;
+}
+
+.viewport {
+  height: 1200px;
+  scroll-behavior: smooth;
+  width: 100%;
+  overflow: auto;
+  padding: 1rem 0;
+}
 
 .submitBtn {
   color: #FFD166;
@@ -6,49 +17,17 @@
 
 .submitBtn:hover {
   background-color: #2D1E5F;
-}
-
-#errorOutput {
   color: white;
 }
 
 .errorMessage {
+  display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 80px;
 }
 
 h2 {
   color: white;
+  font-weight: bold;
 }
-
-app-card {
-  display: block;
-  height: 100%;
-}
-
-.viewport {
-  height: 1200px;
-  scroll-behavior: smooth;
-  width: 100%;
-}
-
-.virtual-row {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -0.5rem;
-}
-
-.virtual-col {
-  flex: 0 0 50%;
-  padding: 0 0.5rem;
-  box-sizing: border-box;
-  margin-bottom: 1rem;
-}
-
-/* Responsive fallback */
-@media (max-width: 768px) {
-  .virtual-col {
-    flex: 0 0 100%;
-  }
-}
-

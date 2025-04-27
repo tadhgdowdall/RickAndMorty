@@ -1,27 +1,27 @@
 <div class="card h-100 episode-card">
-    <div class="card-body">
-      <h5 class="card-title">{{ episode.name }}</h5>
-      <div class="episode-meta mb-3">
-        <span class="badge bg-primary me-2">{{ episode.episode }}</span>
-        <span class="text-muted">{{ episode.air_date | date }}</span>
-      </div>
-  
-      <div class="card-text">
-        <p><strong>Season:</strong> {{ getSeasonNumber() }}</p>
-        <p><strong>Episode:</strong> {{ getEpisodeNumber() }}</p>
-      </div>
-  
-      <div *ngIf="showCharacters && episode.characters" class="mt-3">
-        <h6 class="mb-2">Featured Characters:</h6>
-        <div class="character-preview">
-          <span *ngFor="let characterUrl of episode.characters.slice(0, 5)" 
-                class="badge bg-secondary me-1 mb-1">
-            {{ getCharacterId(characterUrl) }}
-          </span>
-          <span *ngIf="episode.characters.length > 5" class="badge bg-light text-dark">
-            +{{ episode.characters.length - 5 }} more
-          </span>
-        </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ episode.name }}</h5>
+    <div class="episode-meta mb-3">
+      <span class="badge bg-primary me-2">{{ episode.episode }}</span>
+      <span class="text-white">{{ episode.air_date | date }}</span>
+    </div>
+
+    <div class="card-text">
+      <p><strong>Season:</strong> {{ getSeasonNumber() }}</p>
+      <p><strong>Episode:</strong> {{ getEpisodeNumber() }}</p>
+    </div>
+
+    <div *ngIf="showCharacters && episode.characters" class="mt-3">
+      <h6 class="mb-2">Featured Characters:</h6>
+      <div class="character-preview">
+        <span *ngFor="let characterUrl of episode.characters.slice(0, 5)"
+              class="badge bg-secondary me-1 mb-1">
+          {{ getCharacterId(characterUrl) }}
+        </span>
+        <span *ngIf="episode.characters.length > 5" class="badge bg-light text-dark">
+          +{{ episode.characters.length - 5 }} more
+        </span>
       </div>
     </div>
   </div>
+</div>

@@ -20,6 +20,7 @@ export class CharactersComponent implements OnInit {
 
 characters: Character[] = []; // Array of characters
 searchResults: Character[] = []; // Array for storing the searched characters 
+charactersRows: Character[][] = [];
 loading = true;
 error: string | null = null;
 errorMessage:string ='';
@@ -61,7 +62,9 @@ loadCharacters(): void {
       // Append new characters to the existing list
       this.characters = [...this.characters, ...response.results];
       this.loading = false;
-      this.currentPage++;
+       this.groupCharactersIntoRows();
+        this.currentPage++;
+        console.log(this.characters)
     },
     error: (err) => {
       this.error = 'Failed to load characters';
@@ -74,21 +77,21 @@ loadCharacters(): void {
 /* I needed to group characters in rows of 2 as when trying to use virtual scrolling it would leave a lot of white space,
   this was because when scrolling it only loads the next item. but i needed the next 2 items to display
 */
-// get charactersRows(): Character[][] {
-//   const rows: Character[][] = [];
-//   for (let i = 0; i < this.characters.length; i += 2) {
-//     rows.push(this.characters.slice(i, i + 2));
-//   }
-//   return rows;
-// }
+groupCharactersIntoRows(): void {
+  this.charactersRows = [];
+  for (let i = 0; i < this.characters.length; i += 2) {
+    this.charactersRows.push(this.characters.slice(i, i + 2));
+  }
+}
 
 
 
 onScrolledIndexChange(index: number) {
-  if (index >= this.characters.length - 5 && !this.loading) {
+  if (index >= this.charactersRows.length - 5 && !this.loading) {
     this.loadCharacters();
   }
 }
+
 
 
 }

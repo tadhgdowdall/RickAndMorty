@@ -13,9 +13,13 @@
         </select>
       </div>
       <div class="col-md-3">
-        <select class="form-select">
-          <option>Sort by</option>
-          <!-- Sort options -->
+        <select class="form-select" (change)="filterBySeason($event.target.value)">
+          <option value="">All Seasons</option>
+          <option value="1">Season 1</option>
+          <option value="2">Season 2</option>
+          <option value="3">Season 3</option>
+          <option value="4">Season 4</option>
+          <option value="5">Season 5</option>
         </select>
       </div>
     </div>
@@ -28,12 +32,20 @@
     </div>
     
 
-<!-- In your episodes component -->
-<div class="row">
-    <div class="col-md-6 col-lg-4 mb-4" *ngFor="let episode of episodes">
-      <app-episode-card 
-        [episode]="episode"
-        [showCharacters]="true">
-      </app-episode-card>
+    <h2 class="text-center p-2 text-white">All Episodes</h2>
+
+    <cdk-virtual-scroll-viewport
+  itemSize="300"
+  class="viewport"
+  (scrolledIndexChange)="onScrolledIndexChange($event)">
+
+  <div class="row" *cdkVirtualFor="let row of episodeRows">
+    <div class="col-md-4" *ngFor="let episode of row">
+      <app-episode-card [episode]="episode"></app-episode-card>
     </div>
   </div>
+
+</cdk-virtual-scroll-viewport>
+
+
+    
