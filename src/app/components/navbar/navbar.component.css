@@ -66,3 +66,8 @@
       a:hover img {
         animation: portal-spin 2s linear infinite;
       }
+
+      .navbar-toggler {
+        border: none;
+      }
+    

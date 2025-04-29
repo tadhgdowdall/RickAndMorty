@@ -1,24 +1,38 @@
-
 <nav class="navbar navbar-expand-lg bg-body-tertiary custom-navbar">
-  <div class="container-fluid">
-      <!-- Change logo link to /home -->
-      <a class="navbar-brand" id="logo" routerLink="/home">
-          <img src="logo.jpeg" class="logo" alt="logo">
-      </a>
+    <div class="container-fluid">
       
+      <!-- Logo -->
+      <a class="navbar-brand" id="logo" routerLink="/home">
+        <img src="logo.jpeg" class="logo" alt="logo">
+      </a>
+  
+      <!-- Toggler button (burger) right beside logo -->
+      <button 
+        class="navbar-toggler ms-2" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbarSupportedContent" 
+        aria-controls="navbarSupportedContent" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <!-- Navbar links -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                  <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" routerLink="/characters" routerLinkActive="active">Characters</a>
-              </li>
-              <li class="nav-item">
-
-                  <a class="nav-link" routerLink="/episodes" routerLinkActive="active">Episodes</a>
-              </li>
-          </ul>
+        <ul class="navbar-nav ms-3 mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/characters" routerLinkActive="active">Characters</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/episodes" routerLinkActive="active">Episodes</a>
+          </li>
+        </ul>
       </div>
-  </div>
-</nav>
+  
+    </div>
+  </nav>
+  
