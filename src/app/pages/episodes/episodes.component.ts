@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { EpisodeCardComponent } from '../../components/episode-card/episode-card.component';
 import { Episode } from '../../models/episode';
 import { EpisodesService } from '../../services/episodes.service';
@@ -14,65 +13,69 @@ import {ScrollingModule, CdkVirtualScrollViewport} from '@angular/cdk/scrolling'
 })
 export class EpisodesComponent implements OnInit {
 
-episodes: Episode [] = []
-episodeRows: Episode[][] = []; // 2  eps per row 
-loading = true;
-error: string | null = null;
-errorMessage:string ='';
-currentPage = 1;
-totalPages = 0;
+  allEpisodes: Episode[] = [];
+  episodes: Episode[] = [];
+  episodeRows: Episode[][] = [];
+  loading = true;
+  error: string | null = null;
+  currentPage = 1;
+  totalPages = 0;
+  selectedSeason: string = '';
 
- constructor(public episodeService: EpisodesService){}
+  constructor(public episodeService: EpisodesService) {}
 
- ngOnInit(): void {
-  this.loadEpisodes();
-
-}
-
-
-loadEpisodes(): void{
-
-  this.loading = true;
-  this.error = null;
-
-  this.episodeService.getEpisodes(this.currentPage).subscribe({
-    next: (response) => {
-      // Append new characters to the existing list
-      this.episodes = [...this.episodes, ...response.results];
-      this.groupEpisodesIntoRows(); 
-      this.loading = false;
-      this.totalPages = response.info.pages;
-      console.log(this.episodes);
-    },
-    error: (err) => {
-      this.error = 'Failed to load episodes';
-      this.loading = false;
-      console.error('Error loading episodes:', err);
-    }
-  })
-}
-
-groupEpisodesIntoRows(): void {
-  this.episodeRows = [];
-  for (let i = 0; i < this.episodes.length; i += 3) { 
-    this.episodeRows.push(this.episodes.slice(i, i + 3));
-  }
-}
-
-
-filterBySeason(){
-  
-}
-
-onScrolledIndexChange(index: number): void {
-  const buffer = 5; 
-
-  if (index >= this.episodeRows.length - buffer && !this.loading && this.currentPage < this.totalPages) {
-    this.currentPage++;
+  ngOnInit(): void {
     this.loadEpisodes();
   }
-}
 
+  loadEpisodes(): void {
+    this.loading = true;
+    this.error = null;
 
+    this.episodeService.getEpisodes(this.currentPage).subscribe({
+      next: (response) => {
+        this.allEpisodes = [...this.allEpisodes, ...response.results]; // <--- all episodes stored
+        this.episodes = [...this.allEpisodes];  // <--- copy for display
+        this.groupEpisodesIntoRows();
+        this.totalPages = response.info.pages;
+        this.loading = false;
+      },
+      error: (err) => {
+        this.error = 'Failed to load episodes';
+        this.loading = false;
+      }
+    });
+  }
 
+  groupEpisodesIntoRows(): void {
+    this.episodeRows = [];
+    for (let i = 0; i < this.episodes.length; i += 3) { 
+      this.episodeRows.push(this.episodes.slice(i, i + 3));
+    }
+  }
+
+  filterBySeason(selectedSeason: string): void {
+    this.selectedSeason = selectedSeason;
+
+    if (!selectedSeason) {
+      this.episodes = [...this.allEpisodes];  // Reset to show all
+    } else {
+      const seasonNumber = parseInt(selectedSeason, 10);
+      this.episodes = this.allEpisodes.filter(episode => {
+        const seasonString = episode.episode?.substring(1, 3);
+        const season = seasonString ? parseInt(seasonString, 10) : NaN;
+        return season === seasonNumber;
+      });
+    }
+
+    this.groupEpisodesIntoRows();  // Regroup after filter
+  }
+
+  onScrolledIndexChange(index: number): void {
+    const buffer = 5;
+    if (index >= this.episodeRows.length - buffer && !this.loading && this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.loadEpisodes();
+    }
+  }
 }

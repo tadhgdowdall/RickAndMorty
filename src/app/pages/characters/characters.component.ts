@@ -65,6 +65,7 @@ loadCharacters(): void {
        this.groupCharactersIntoRows();
         this.currentPage++;
         console.log(this.characters)
+        console.log(this.characters.length)
     },
     error: (err) => {
       this.error = 'Failed to load characters';

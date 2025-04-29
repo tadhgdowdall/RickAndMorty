@@ -3,7 +3,7 @@
 }
 
 .viewport {
-  height: 1200px;
+  height: 800px;
   scroll-behavior: smooth;
   width: 100%;
   overflow: auto;

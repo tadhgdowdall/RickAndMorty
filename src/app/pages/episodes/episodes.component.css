@@ -24,7 +24,7 @@
   }
   
   .viewport {
-    height: 1400px; /* taller viewport to fit more cards at once */
+    height: 600px; /* taller viewport to fit more cards at once */
     width: 100%;
     scroll-behavior: smooth;
   }
