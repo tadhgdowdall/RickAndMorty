@@ -7,7 +7,7 @@
       <input type="text" class="form-control" placeholder="Search episodes...">
     </div>
     <div class="col-md-3">
-      <select class="form-select" name="seasonFilter">
+      <select class="form-select" name="seasonFilter" [(ngModel)]="selectedSeason">
         <option value="">All Seasons</option>
         <option value="1">Season 1</option>
         <option value="2">Season 2</option>
@@ -27,16 +27,17 @@
   <div *ngIf="error" class="text-danger text-center mb-3">
     {{ error }}
   </div>
-
-  <!-- Filtered view -->
-  <div *ngIf="selectedSeason && episodes.length > 0">
-    <h2 class="text-center text-white mb-4">Season {{ selectedSeason }} Episodes</h2>
-    <div class="row">
-      <div class="col-md-6 mb-4" *ngFor="let episode of episodes">
-        <app-episode-card [episode]="episode"></app-episode-card>
-      </div>
+  
+<!-- Filtered view -->
+<div *ngIf="selectedSeason && episodes.length > 0">
+  <h2 class="text-center text-white mb-4">Season {{ selectedSeason }} Episodes</h2>
+  <div class="row">
+    <div class="col-md-6 mb-4" *ngFor="let episode of episodes">
+      <app-episode-card [episode]="episode"></app-episode-card>
     </div>
   </div>
+</div>
+
 
   <!-- Full view with virtual scroll -->
   <div *ngIf="!selectedSeason">

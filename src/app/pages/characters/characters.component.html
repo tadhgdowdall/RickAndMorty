@@ -13,7 +13,7 @@
   </form>
 
   <!-- Error Message -->
-  <div class="errorMessage text-center">
+  <div *ngIf="errorMessage" class="errorMessage text-center">
     <h3 id="errorOutput">{{ errorMessage }}</h3>
   </div>
 

@@ -4,10 +4,11 @@ import { EpisodeCardComponent } from '../../components/episode-card/episode-card
 import { Episode } from '../../models/episode';
 import { EpisodesService } from '../../services/episodes.service';
 import {ScrollingModule, CdkVirtualScrollViewport} from '@angular/cdk/scrolling';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-episodes',
-  imports: [CommonModule, EpisodeCardComponent, ScrollingModule],
+  imports: [CommonModule, EpisodeCardComponent, ScrollingModule, FormsModule],
   templateUrl: './episodes.component.html',
   styleUrl: './episodes.component.css'
 })
@@ -26,6 +27,8 @@ export class EpisodesComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadEpisodes();
+    console.log(this.selectedSeason);
+    
   }
 
   loadEpisodes(): void {
@@ -55,12 +58,14 @@ export class EpisodesComponent implements OnInit {
   }
 
   filterBySeason(selectedSeason: string): void {
+
+
     this.selectedSeason = selectedSeason;
 
-    if (!selectedSeason) {
-      this.episodes = [...this.allEpisodes];  // Reset to show all
+    if (!this.selectedSeason) {
+      this.episodes = [...this.allEpisodes];  
     } else {
-      const seasonNumber = parseInt(selectedSeason, 10);
+      const seasonNumber = parseInt(this.selectedSeason, 10);
       this.episodes = this.allEpisodes.filter(episode => {
         const seasonString = episode.episode?.substring(1, 3);
         const season = seasonString ? parseInt(seasonString, 10) : NaN;
