@@ -40,3 +40,29 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Node modules for backend
+/backend/node_modules
+/backend/package-lock.json
+
+# Environment files 
+/backend/.env
+
+# Angular build files and node_modules
+/rickandmorty-angular/node_modules
+/rickandmorty-angular/dist
+/rickandmorty-angular/.angular/cache
+/rickandmorty-angular/.angular/config.json
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE settings (optional but recommended)
+/.vscode
+.idea
+*.sublime-project
+*.sublime-workspace

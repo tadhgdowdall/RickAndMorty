@@ -1,1 +1,56 @@
-<p>episodes works!</p>
+<div class="container-fluid">
+  <h1 class="text-center my-4 text-white">Rick and Morty Episodes</h1>
+
+  <!-- Filter -->
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <input type="text" class="form-control" placeholder="Search episodes...">
+    </div>
+    <div class="col-md-3">
+      <select class="form-select" name="seasonFilter" [(ngModel)]="selectedSeason">
+        <option value="">All Seasons</option>
+        <option value="1">Season 1</option>
+        <option value="2">Season 2</option>
+        <option value="3">Season 3</option>
+        <option value="4">Season 4</option>
+        <option value="5">Season 5</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Loading state -->
+  <div *ngIf="loading" class="text-center text-white mb-3">
+    Loading episodes...
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="error" class="text-danger text-center mb-3">
+    {{ error }}
+  </div>
+  
+<!-- Filtered view -->
+<div *ngIf="selectedSeason && episodes.length > 0">
+  <h2 class="text-center text-white mb-4">Season {{ selectedSeason }} Episodes</h2>
+  <div class="row">
+    <div class="col-md-6 mb-4" *ngFor="let episode of episodes">
+      <app-episode-card [episode]="episode"></app-episode-card>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Full view with virtual scroll -->
+  <div *ngIf="!selectedSeason">
+    <h2 class="text-center p-2 text-white">All Episodes</h2>
+    <cdk-virtual-scroll-viewport
+      itemSize="200"
+      class="viewport"
+      (scrolledIndexChange)="onScrolledIndexChange($event)">
+      <div class="row" *cdkVirtualFor="let row of episodeRows">
+        <div class="col-md-4" *ngFor="let episode of row">
+          <app-episode-card [episode]="episode" class="m-3"></app-episode-card>
+        </div>
+      </div>
+    </cdk-virtual-scroll-viewport>
+  </div>
+</div>

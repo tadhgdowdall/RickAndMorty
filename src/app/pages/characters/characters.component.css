@@ -1,6 +1,34 @@
-.container{
-    background-color: #0C0032; /* Deep space blue-purple */
-    background-image: 
-      radial-gradient(circle at 20% 30%, #2D1E5F 0%, transparent 30%);
-    background-attachment: fixed;
+
+.viewport {
+  height: 800px;
+  scroll-behavior: smooth;
+  width: 100%;
+  overflow: auto;
+  padding: 1rem 0;
 }
+
+.submitBtn {
+  color: #FFD166;
+  border-color: #FFD166;
+}
+
+.submitBtn:hover {
+  background-color: #2D1E5F;
+  color: white;
+}
+
+.errorMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80px;
+  margin-bottom: 8px;
+}
+
+h2 {
+  color: white;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+
