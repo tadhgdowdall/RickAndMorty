@@ -5,7 +5,7 @@
   }
   
   .virtual-col {
-    flex: 0 0 33.3333%; /* 3 cards per row */
+    flex: 0 0 33.3333%; /* 3 cards per row */       
     padding: 0 0.5rem;
     box-sizing: border-box;
     margin-bottom: 1rem;
@@ -24,8 +24,28 @@
   }
   
   .viewport {
-    height: 600px; /* taller viewport to fit more cards at once */
+    height: 600px; 
     width: 100%;
     scroll-behavior: smooth;
+  }
+  
+
+  /* Search and filtering */
+
+  
+  .form-select-sm {
+    border: 1px solid #42B983;
+    background: #2d1e5f;
+    color: #FFFFFF;
+  }
+  
+  .btn-outline-light {
+    border-color: #42B983;
+    color: #42B983;
+  }
+  
+  .btn-outline-light:hover {
+    background-color: #42B983;
+    color: #fff;
   }
   

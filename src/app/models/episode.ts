@@ -2,13 +2,13 @@ export interface Episode {
     id: number;
     name: string;
     air_date: string;
-    episode: string; // Format like "S01E01"
-    characters: string[]; // Array of character URLs
+    episode: string; // Retrieves in format S01 E02
+    characters: string[]; // Array of characters URLs
     url: string;
-    created: string; // ISO format
+    created: string; 
   }
   
-  // For paginated API responses
+  // For The api response
   export interface EpisodeResponse {
     info: {
       count: number;

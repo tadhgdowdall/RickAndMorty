@@ -75,8 +75,8 @@ loadCharacters(): void {
   });
 }
 
-/* I needed to group characters in rows of 2 as when trying to use virtual scrolling it would leave a lot of white space,
-  this was because when scrolling it only loads the next item. but i needed the next 2 items to display
+/* To fix virtualisation scrolling being super jumpy as it only loaded 1 at a time, i had to put it into groupsOfRows so we show
+each row together 
 */
 groupCharactersIntoRows(): void {
   this.charactersRows = [];

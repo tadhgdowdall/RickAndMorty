@@ -15,17 +15,17 @@ export class EpisodeCardComponent {
 
 
   getSeasonNumber(): string {
-    // Extracts season number from episode code (e.g., "S01" from "S01E03")
+    // Gets the season number 
     return this.episode.episode.substring(1, 3);
   }
   
   getEpisodeNumber(): string {
-    // Extracts episode number (e.g., "03" from "S01E03")
+    // Gets episode number
     return this.episode.episode.substring(4, 6);
   }
   
   getCharacterId(characterUrl: string): string {
-    // Extracts character ID from URL
+    // Gets ID From URL
     return characterUrl.split('/').pop() || '';
   }
 }

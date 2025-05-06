@@ -1,4 +1,4 @@
-/* Footer Colors */
+
 .border-portal {
     border-top: 2px solid #42B983 !important; 
   }
@@ -8,16 +8,18 @@
   }
   
   .copyright {
-    color: #FFD166 !important; /* Morty yellow */
+    color: #FFD166 !important; 
   }
   
   .icon{
-    color: #A0A0A0 !important; /* Gray for social icons */
+    color: #A0A0A0 !important; 
     transition: all 0.3s ease;
   }
+
+  
   
   .icon:hover {
-    color: #42B983 !important; /* Portal green on hover */
+    color: #42B983 !important; 
     transform: translateY(-2px);
   }
   
@@ -26,7 +28,7 @@
     background: transparent;
   }
   
-  /* Animation for portal icon */
+ /* The animation for the spinning logo */
   @keyframes portal-spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
