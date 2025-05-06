@@ -24,9 +24,8 @@ getEpisodesBySeason(season: string) {
   );
 }
 
-
+// Gets all the episodes
   getEpisodes(page=1): Observable<EpisodeResponse>{
-
     return this.http.get<EpisodeResponse>(
       `${this.apiURL}?page=${page}`
     ).pipe(

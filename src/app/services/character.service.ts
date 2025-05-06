@@ -7,9 +7,12 @@ import { Character, CharacterResponse } from '../models/character';
   providedIn: 'root'
 })
 export class CharacterService {
+
+
   private http = inject(HttpClient);
   private apiURL = 'https://rickandmortyapi.com/api';
 
+  //Gets all the characters from show
   getCharacters(page = 1): Observable<CharacterResponse> {
     return this.http.get<CharacterResponse>(
       `${this.apiURL}/character?page=${page}`
@@ -21,6 +24,7 @@ export class CharacterService {
     );
   }
 
+  // Searches character by name using api
   getCharacterByName(name: string): Observable<CharacterResponse> {
     return this.http.get<CharacterResponse>(
       `${this.apiURL}/character/?name=${name}`
