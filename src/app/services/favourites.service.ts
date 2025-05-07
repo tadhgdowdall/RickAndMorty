@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment';
 })
 export class FavouritesService {
 
-  private apiUrl = `${environment.apiUrl}/favourites`;
+  private apiUrl = 'http://54.210.123.45:3000/api/favourites';
 
   constructor(private http: HttpClient) { }
 
