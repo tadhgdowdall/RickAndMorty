@@ -22,11 +22,11 @@ export class FavouritesComponent implements OnInit{
   ngOnInit(): void {
     this.favouritesService.getFavourites().subscribe({
       next: (data) => {
-        this.favourites = data;
+        this.favourites = data; // adds favourites to the array of favourites
         this.loading = false;
       },
       error: () => {
-        this.error = 'Failed to load favourites';
+        this.error = 'Failed to load your favourites';
         this.loading = false;
       }
     });

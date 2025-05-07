@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <h1 class="text-center my-4 text-white">Rick and Morty Episodes</h1>
+  <h1 class="text-center my-4 ">Rick and Morty Episodes</h1>
 
  <!-- Filter Bar -->
  <div class="filter-container mb-4 p-3 rounded d-flex flex-wrap align-items-center gap-3">
@@ -51,7 +51,7 @@
 
 <!-- Filtering the view for when a season is selected-->
 <div *ngIf="selectedSeason && episodeRows.length">
-  <h2 class="text-center text-white mb-4">
+  <h2 class="text-center  mb-4">
     Season {{ selectedSeason }} Episodes
   </h2>
 
@@ -68,7 +68,7 @@
 
   <!-- Full view with virtual scroll -->
   <div *ngIf="!selectedSeason">
-    <h2 class="text-center p-2 text-white">All Episodes</h2>
+    <h2 class="text-center p-2 ">All Episodes</h2>
     <cdk-virtual-scroll-viewport
       itemSize="200"
       class="viewport"

@@ -53,14 +53,14 @@ searchCharacterName(characterName: string) {
   });
 }
 
+
 loadCharacters(): void {
   this.loading = true;
   this.error = null;
-
   this.characterService.getCharacters(this.currentPage).subscribe({
     next: (response) => {
       // Append new characters to the existing list
-      this.characters = [...this.characters, ...response.results];
+      this.characters = [...this.characters, ...response.results]; // This uses the spread operator which spreads out (copies) all current characters into the new array.
       this.loading = false;
        this.groupCharactersIntoRows();
         this.currentPage++;
@@ -68,9 +68,9 @@ loadCharacters(): void {
         console.log(this.characters.length)
     },
     error: (err) => {
-      this.error = 'Failed to load characters';
+      this.error = 'Failed to load';
       this.loading = false;
-      console.error('Error loading characters:', err);
+      console.error('error loading the characters:', err);
     }
   });
 }
@@ -80,14 +80,17 @@ each row together
 */
 groupCharactersIntoRows(): void {
   this.charactersRows = [];
-  for (let i = 0; i < this.characters.length; i += 2) {
-    this.charactersRows.push(this.characters.slice(i, i + 2));
+  for (let i = 0; i < this.characters.length; i += 2) { // Loops through array in steps of 2 
+    this.charactersRows.push(this.characters.slice(i, i + 2)); // gets the characters starting at index i and puts in characterRows array
   }
 }
 
 
 
+// checks to see if user has scrolled within 3 rows from bottom
 onScrolledIndexChange(index: number) {
+
+  // This pre loads next rows before we reach them
   if (index >= this.charactersRows.length - 5 && !this.loading) {
     this.loadCharacters();
   }

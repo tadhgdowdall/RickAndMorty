@@ -116,11 +116,13 @@ export class EpisodesComponent implements OnInit {
     this.groupEpisodesIntoRows();
   }
 
-  onScrolledIndexChange(index: number): void {
-    const buffer = 5;
-    if (index >= this.episodeRows.length - buffer && !this.loading && this.currentPage < this.totalPages) {
-      this.currentPage++;
-      this.loadEpisodes();
-    }
+
+// checks to see if user has scrolled within 3 rows from bottom
+onScrolledIndexChange(index: number): void {
+  if (index >= this.episodeRows.length - 3 && !this.loading && this.currentPage < this.totalPages) {
+    this.currentPage++;
+    this.loadEpisodes();
   }
+}
+
 }
