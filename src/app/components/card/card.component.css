@@ -68,7 +68,7 @@ button{
     cursor: pointer;
   }
   li{
-    background-color: #3B2A7B; 
+    background-color: #3B2A7B; /* Deep purple */
   color: #FFD166;
   border-bottom: 1px solid #00FF00;
   }

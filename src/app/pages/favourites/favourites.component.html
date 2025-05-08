@@ -9,8 +9,8 @@
     </div>
   
     <div class="row" *ngIf="favourites.length > 0">
-      <div class="col-md-4 mb-4" *ngFor="let fav of favourites">
-        <app-card [character]="fav" [isFavourited]="true"  [hideButtons]="true" ></app-card>  <!-- isFavourited is true-->
+      <div class="col-12 col-sm-6 col-lg-4 mb-4 " *ngFor="let fav of favourites">
+        <app-card [character]="fav" [isFavourited]="true" [hideButtons]="true"></app-card> 
       </div>
     </div>
   </div>

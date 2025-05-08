@@ -91,7 +91,8 @@ groupCharactersIntoRows(): void {
 onScrolledIndexChange(index: number) {
 
   // This pre loads next rows before we reach them
-  if (index >= this.charactersRows.length - 5 && !this.loading) {
+  if (index >= this.charactersRows.length - 10 && !this.loading) {
+
     this.loadCharacters();
   }
 }
