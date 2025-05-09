@@ -1,4 +1,4 @@
-// src/app/models/character.ts
+
 export interface Character {
   id: number;
   name: string;
@@ -11,7 +11,7 @@ export interface Character {
   image: string;
   episode: string[];
   url: string;
-  created: string; // ISO format
+  created: string; 
 }
 
 interface Location {
