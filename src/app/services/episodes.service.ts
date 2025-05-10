@@ -16,8 +16,16 @@ export class EpisodesService {
 
  // https://rickandmortyapi.com/api/episode
 
-  getEpisodes(page=1): Observable<EpisodeResponse>{
+ // Get episodes by season ( Used for filtering by season)
+getEpisodesBySeason(season: string) {
+  const code = season.padStart(2,'0');               
+  return this.http.get<EpisodeResponse>(
+    `${this.apiURL}?episode=S${code}`
+  );
+}
 
+// Gets all the episodes
+  getEpisodes(page=1): Observable<EpisodeResponse>{
     return this.http.get<EpisodeResponse>(
       `${this.apiURL}?page=${page}`
     ).pipe(

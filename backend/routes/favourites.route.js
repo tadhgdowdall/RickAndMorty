@@ -4,8 +4,12 @@ const Favourite = require('../models/favourite.model');
 
 // GET all
 router.get('/', async (req, res) => {
-  const favourites = await Favourite.find();
-  res.json(favourites);
+  try {
+    const favourites = await Favourite.find();
+    res.json(favourites);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 });
 
 // POST new
